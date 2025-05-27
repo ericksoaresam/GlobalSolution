@@ -1,0 +1,2 @@
+Menu = int(input("-----=====Desastres=====-----\nSelecione um tipo de desastre: \n1- Tsunami\n2- Terremoto\n3- Erupção Vulcânica\n4- Deslizamentos de Terra\n5- Inundação\n6- Enchente\n7- Furacão\n0- Sair\n"))
+Menu()
