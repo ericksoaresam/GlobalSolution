@@ -21,11 +21,18 @@ while True:
         print("Por favor, insira um número inteiro válido.")
 
 for i in range(quantidade_desastres):
-    print(f"\n--- Desastre {i+1} ---")
-    print("Digite 0 para sair ou qualquer outra tecla para continuar.")
-    escolha = input("Sua escolha: ")
+    print(f"\n--- Desastre {i+1} de {quantidade_desastres} ---")
+    while True:
+        escolha = input("Digite 1 para registrar um desastre ou 0 para sair: ")
+        if escolha == "0":
+            print("\nEncerrando o registro de desastres...")
+            break
+        elif escolha == "1":
+            break
+        else:
+            print("Opção inválida. Digite 1 para continuar ou 0 para sair.")
+
     if escolha == "0":
-        print("\nEncerrando o registro de desastres...")
         break
 
     tipo = input("Tipo de desastre: ")
@@ -50,7 +57,7 @@ for i in range(quantidade_desastres):
         except ValueError:
             print("Insira apenas números inteiros válidos.")
 
-    # Armazenar dados
+
     tipos_desastres.append(tipo)
     paises.append(pais)
     cidades.append(cidade)
@@ -64,7 +71,6 @@ for i in range(quantidade_desastres):
     mobilidade_reduzida.append(mr)
     feridos.append(f)
 
-# Relatório
 total_desastres = len(tipos_desastres)
 soma_criancas = sum(criancas)
 soma_adultos = sum(adultos)
@@ -85,9 +91,7 @@ if soma_idosos > maior_valor:
 if soma_mob > maior_valor:
     maior_valor = soma_mob
     categoria_mais_afetada = "Mobilidade reduzida"
-if soma_feridos > maior_valor:
-    maior_valor = soma_feridos
-    categoria_mais_afetada = "Feridos"
+
 
 if total_desastres > 0:
     maior_afetados = total_afetados[0]
@@ -97,14 +101,14 @@ if total_desastres > 0:
             maior_afetados = total_afetados[i]
             indice_maior = i
 
-    print("\n\n===== RELATÓRIO FINAL =====\n")
-    print(f"Total de desastres registrados: {total_desastres}\n")
-    print("Resumo de pessoas afetadas por categoria:")
+    print("\n\n-----=====RELATÓRIO FINAL=====-----\n")
+    print(f"--=Total de desastres registrados==-\n{total_desastres}\n")
+    print("--=Resumo de pessoas afetadas por categoria=--")
     print(f"Crianças: {soma_criancas} | Adultos: {soma_adultos} | Idosos: {soma_idosos} | Mobilidade reduzida: {soma_mob} | Feridos: {soma_feridos}\n")
-    print(f"Categoria mais afetada: {categoria_mais_afetada}")
+    print(f"--=Categoria mais afetada=--\n{categoria_mais_afetada}")
     print(f"Total geral de pessoas afetadas: {soma_total_afetados}\n")
-    print("Desastre com maior número de afetados:")
+    print("--=Desastre com maior número de afetados=--")
     print(f"Tipo: {tipos_desastres[indice_maior]}")
-    print(f"Local: {ruas[indice_maior]}, {bairros[indice_maior]}, {cidades[indice_maior]}, {paises[indice_maior]}")
+    print(f"-=Local=-\nRua:{ruas[indice_maior]}\nBairro: {bairros[indice_maior]}\nCidade: {cidades[indice_maior]}\nPaís: {paises[indice_maior]}")
 else:
     print("\nNenhum desastre foi registrado.")
